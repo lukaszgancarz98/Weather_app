@@ -1,0 +1,311 @@
+<CreateAccountWindow>:
+    name: "create"
+    namee: namee
+    email: email
+    password: passw
+    loc: loc
+    Image:
+        source: 'Pogoda.png'
+        allow_stretch: True
+        keep_ratio: False
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Stworz konto"
+                color: 0,0,0,0.9
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8}
+                text: "Nazwa uzytkownika: "
+                color: 0,0,0,0.9
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.10
+                id: namee
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8-0.13}
+                text: "Email: "
+                color: 0,0,0,0.9
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8-0.13}
+                size_hint: 0.4, 0.10
+                id: email
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.12
+                pos_hint: {"x":0, "top":0.8-0.13*2}
+                text: "Haslo: "
+                color: 0,0,0,0.9
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8-0.13*2}
+                size_hint: 0.4, 0.10
+                id: passw
+                multiline: False
+                password: True
+                font_size: (root.width**2 + root.height**2) / 14**4
+            Label:
+                size_hint: 0,0.12
+                pos_hint: {"x":0.5, "top":0.8-0.13*3}
+                text: "Lokalizacja: "
+                color: 0,0,0,0.9
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8-0.13*3}
+                size_hint: 0.4, 0.10
+                id: loc
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.18}
+            size_hint: 0.4, 0.1
+            background_color: (0,0,0,0.5)
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Masz juz konto? Zaloguj sie"
+            color: 0,0,0,0.9
+            on_release:
+                root.manager.transition.direction = "left"
+                root.login()
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.05}
+            size_hint: 0.4, 0.10
+            background_color: (0,0,0,0.5)
+            text: "Zatwierdz"
+            color: 0,0,0,0.9
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+
+<LoginWindow>:
+    name: "login"
+
+    email: email
+    password: password
+    Image:
+        source: 'Pogoda.png'
+        allow_stretch: True
+        keep_ratio: False
+    FloatLayout:
+
+        Label:
+            text:"Email:"
+            color: 1,1,1,0.9
+            bold: True
+            font_size: 30
+            italic: True
+            outline_color: (0,0,0)
+            outline_width:2
+            pos_hint: {"x":0.1, "top":0.9}
+            size_hint: 0.4, 0.1
+
+
+        TextInput:
+            id: email
+            font_size: 30
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.9}
+            size_hint: 0.4, 0.1
+
+        Label:
+            text:"Haslo:"
+            color: 1,1,1,0.9
+            bold: True
+            font_size: 30
+            italic: True
+            outline_color: (0,0,0)
+            outline_width:2
+            pos_hint: {"x":0.1, "top":0.7}
+            size_hint: 0.4, 0.1
+
+        TextInput:
+            id: password
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.45, "top":0.7}
+            size_hint: 0.4, 0.1
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.3}
+            size_hint: 0.6, 0.2
+            background_color: (0,0,0,0.5)
+            font_size: (root.width**2 + root.height**2) / 12**4
+            text: "Loguj"
+            color: 0,0,0,0.9
+            bold: True
+            italic: True
+            outline_color: (1,1,1)
+            outline_width:2
+            on_release:
+                root.manager.transition.direction = "up"
+                root.loginBtn()
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.1}
+            size_hint: 0.4, 0.1
+            background_color: (0,0,0,0.5)
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Nie masz konta? Zarejestruj sie"
+            color: 0,0,0,0.9
+            bold: True
+            italic: True
+            outline_color: (1,1,1)
+            outline_width:2
+            on_release:
+                root.manager.transition.direction = "right"
+                root.createBtn()
+
+
+<MainWindow>:
+    created:created
+    Image:
+        source: 'Pogoda.png'
+        allow_stretch: True
+        keep_ratio: False
+
+    FloatLayout:
+        GridLayout:
+            rows: 1
+            pos_hint: {"x": 0.1, "top": 0.8}
+            size_hint: 0.1, 0.1
+            Image:
+                source: "termo.png"
+
+        GridLayout:
+            rows: 1
+            pos_hint: {"x": 0.55, "top": 0.8}
+            size_hint: 0.1, 0.1
+            Image:
+                source: "odczuwal.png"
+
+        GridLayout:
+            rows: 1
+            pos_hint: {"x": 0.1, "top": 0.55}
+            size_hint: 0.1, 0.1
+            Image:
+                source: "presure.png"
+
+        GridLayout:
+            rows: 1
+            pos_hint: {"x": 0.55, "top": 0.55}
+            size_hint: 0.1, 0.1
+            Image:
+                source: "wilgot.png"
+
+        GridLayout:
+            rows: 1
+            pos_hint: {"x": 0.1, "top": 0.3}
+            size_hint: 0.1, 0.1
+            Image:
+                source: "wiatr.png"
+
+        GridLayout:
+            rows: 1
+            pos_hint: {"x": 0.55, "top": 0.3}
+            size_hint: 0.1, 0.1
+            Image:
+                source: "opis.png"
+
+        TextInput:
+            id: nowalok
+            font_size: 35
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            color: (0,0,0,0.1)
+            pos_hint: {"x": 0.35 , "top":1}
+            size_hint: 0.3, 0.10
+
+        Label:
+            id: created
+            pos_hint:{"x": 0.02, "top":1}
+            size_hint:0.1, 0.1
+            text: "Lokalizacja "
+            color: 0,0,0,0.9
+
+        Label:
+            id: temp
+            pos_hint:{"x": 0.25, "top":0.8}
+            size_hint:0.1, 0.1
+            text: "TEMP ZIOBRO "
+            color: 0,0,0,0.9
+
+        Label:
+            id: fells
+            pos_hint:{"x": 0.75, "top":0.8}
+            size_hint:0.1, 0.1
+            text: "ODCZU KURWO "
+            color: 0,0,0,0.9
+
+        Label:
+            id: press
+            pos_hint:{"x": 0.25, "top":0.55}
+            size_hint:0.1, 0.1
+            text: "CISNIENIE JEBANA "
+            color: 0,0,0,0.9
+
+        Label:
+            id: humi
+            pos_hint:{"x": 0.75, "top":0.55}
+            size_hint:0.1, 0.1
+            text: "WILGO PRZESTAN MI "
+            color: 0,0,0,0.9
+
+        Label:
+            id: wind
+            pos_hint:{"x": 0.25, "top":0.3}
+            size_hint:0.1, 0.1
+            text: "WIATR RODZINE PRZESLADOWAC "
+            color: 0,0,0,0.9
+
+        Label:
+            id: desc
+            pos_hint:{"x": 0.75, "top":0.3}
+            size_hint:0.1, 0.1
+            text: "OPIS TY PEDALE PISOWSKI "
+            color: 0,0,0,0.9
+
+        Button:
+            pos_hint:{"x":0.84, "y": 0}
+            size_hint:0.16,0.08
+            background_color: (0,0,0,0.5)
+            text: "Wyloguj sie"
+            color: 0,0,0,0.9
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "down"
+
+        Button:
+            on_release:
+                created.text = nowalok.text
+
+            pos_hint:{"x":0.65, "y": 0.87}
+            size_hint:0.15,0.15
+            background_normal: "chmura.png"
+            background_down: "chmura3.png"
+            allow_stretch: True
+            keep_ratio: False

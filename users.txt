@@ -1,0 +1,9 @@
+tim@gmail.com;1234;tim;2019-03-02
+mankowski.damian2@gmail.com;XD;Damian;2020-12-03
+XD@XD.com;XD;XD;XD
+DD@DD.com;DD;Maciej;DDD
+G@G.com;GG;Garnek;DUPA
+T@T.com;TT;Tomek;EZI
+A@A.com;AA;Aneta;Wroclaw
+W@W.com;WW;WW;Gola
+C@C.com;CC;Damian;Warszawa
